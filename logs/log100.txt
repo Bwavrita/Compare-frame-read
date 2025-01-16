@@ -1,0 +1,30 @@
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+fb3660eebb1a   image-python       33.74%    158.6MiB / 7.661GiB   2.02%     324MB / 2.22MB   96.9MB / 1.22GB   5
+f7a440db939f   image-c            0.00%     30.22MiB / 7.661GiB   0.39%     259MB / 5.5MB    86MB / 975MB      1
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+fb3660eebb1a   image-python       0.54%     167.1MiB / 7.661GiB   2.13%     324MB / 2.22MB   96.9MB / 1.22GB   5
+f7a440db939f   image-c            6.77%     50.86MiB / 7.661GiB   0.65%     259MB / 5.5MB    86MB / 975MB      2
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+fb3660eebb1a   image-python       33.54%    219.7MiB / 7.661GiB   2.80%     325MB / 2.23MB   96.9MB / 1.22GB   9
+f7a440db939f   image-c            38.05%    65.11MiB / 7.661GiB   0.83%     259MB / 5.51MB   86MB / 975MB      2
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+fb3660eebb1a   image-python       26.19%    219.9MiB / 7.661GiB   2.80%     325MB / 2.23MB   96.9MB / 1.22GB   9
+f7a440db939f   image-c            0.00%     30.23MiB / 7.661GiB   0.39%     259MB / 5.52MB   86MB / 975MB      1
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+fb3660eebb1a   image-python       20.13%    148.7MiB / 7.661GiB   1.90%     325MB / 2.23MB   96.9MB / 1.22GB   1
+f7a440db939f   image-c            0.00%     30.23MiB / 7.661GiB   0.39%     259MB / 5.52MB   86MB / 975MB      1
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+fb3660eebb1a   image-python       0.00%     148.7MiB / 7.661GiB   1.90%     325MB / 2.23MB   96.9MB / 1.22GB   1
+f7a440db939f   image-c            0.00%     30.23MiB / 7.661GiB   0.39%     259MB / 5.52MB   86MB / 975MB      1
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+fb3660eebb1a   image-python       0.00%     148.7MiB / 7.661GiB   1.90%     325MB / 2.23MB   96.9MB / 1.22GB   1
+f7a440db939f   image-c            0.00%     30.23MiB / 7.661GiB   0.39%     259MB / 5.52MB   86MB / 975MB      1
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+fb3660eebb1a   image-python       0.00%     148.7MiB / 7.661GiB   1.90%     325MB / 2.23MB   96.9MB / 1.22GB   1
+f7a440db939f   image-c            0.00%     30.23MiB / 7.661GiB   0.39%     259MB / 5.52MB   86MB / 975MB      1
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+fb3660eebb1a   image-python       0.00%     148.7MiB / 7.661GiB   1.90%     325MB / 2.23MB   96.9MB / 1.22GB   1
+f7a440db939f   image-c            0.00%     30.23MiB / 7.661GiB   0.39%     259MB / 5.52MB   86MB / 975MB      1
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O         PIDS
+fb3660eebb1a   image-python       0.00%     148.7MiB / 7.661GiB   1.90%     325MB / 2.23MB   96.9MB / 1.22GB   1
+f7a440db939f   image-c            0.00%     30.23MiB / 7.661GiB   0.39%     259MB / 5.52MB   86MB / 975MB      1
