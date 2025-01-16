@@ -30,11 +30,9 @@ def camera(ip_camera_url, qtd_frame):
     return 1
 
 def main():
-    # Configurar o parser de argumentos
     parser = argparse.ArgumentParser(description="Processar um número específico de frames de uma câmera RTSP.")
     parser.add_argument("qtd_frames", type=int, help="Número de frames a serem processados")
     
-    # Ler os argumentos
     args = parser.parse_args()
 
     qtd_frames = args.qtd_frames

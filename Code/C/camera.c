@@ -3,7 +3,7 @@
 #include <libswscale/swscale.h>
 #include <libavutil/imgutils.h>
 #include <stdio.h>
-#include <time.h> // Adicionado para medir o tempo
+#include <time.h> 
 
 int process_rtsp_stream(const char *url, int n_frames) {
     AVFormatContext *formatCtx = NULL;
@@ -12,111 +12,125 @@ int process_rtsp_stream(const char *url, int n_frames) {
     AVPacket packet;
     struct SwsContext *swsCtx = NULL;
 
-    // Inicializar as bibliotecas
+    // Inicializar as bibliotecas, padroes para ler frame (ffmpeg)
     av_log_set_level(AV_LOG_DEBUG);
     avformat_network_init();
 
-    // Configurar opções para o stream
+    // Configurar opções para o stream, como o tipo de transporte
     AVDictionary *options = NULL;
     av_dict_set(&options, "rtsp_transport", "tcp", 0);
-
-    // Medir o tempo: início
     clock_t start_time = clock();
 
-    // Abrir o stream RTSP
+    // Fazer a conexão rtsp para começar a leitura de frames
     if (avformat_open_input(&formatCtx, url, NULL, &options) != 0) {
         av_dict_free(&options);
-        return -1;
+        return 0;
     }
     av_dict_free(&options);
 
-    // Encontrar informações do stream
+    // Reber formato de video da camera
     if (avformat_find_stream_info(formatCtx, NULL) < 0) {
         avformat_close_input(&formatCtx);
-        return -1;
+        return 0;
     }
 
     // Encontrar o stream de vídeo
-    int videoStreamIndex = -1;
+    int videoStreamIndex = 0;
     for (int i = 0; i < formatCtx->nb_streams; i++) {
         if (formatCtx->streams[i]->codecpar->codec_type == AVMEDIA_TYPE_VIDEO) {
             videoStreamIndex = i;
             break;
         }
     }
-    if (videoStreamIndex == -1) {
+    if (videoStreamIndex == 0) {
         avformat_close_input(&formatCtx);
-        return -1;
+        return 0;
     }
 
-    // Configurar o codec
+    // Encontrar o codec necessário para decodificar o stream de vídeo
     const AVCodec *codec = avcodec_find_decoder(formatCtx->streams[videoStreamIndex]->codecpar->codec_id);
     if (!codec) {
+        // Se o codec não for encontrado, encerra a função com erro
         avformat_close_input(&formatCtx);
-        return -1;
+        return 0;
     }
 
+    // Alocar um contexto para o codec
     codecCtx = avcodec_alloc_context3(codec);
     if (!codecCtx) {
+        // Se falhar na alocação do contexto, encerra com erro
         avformat_close_input(&formatCtx);
-        return -1;
+        return 0;
     }
 
+    // Copiar os parâmetros do codec do stream para o contexto do codec
     if (avcodec_parameters_to_context(codecCtx, formatCtx->streams[videoStreamIndex]->codecpar) < 0) {
+        // Em caso de erro, libera o contexto do codec e encerra
         avcodec_free_context(&codecCtx);
         avformat_close_input(&formatCtx);
-        return -1;
+        return 0;
     }
 
+    // Abrir o codec para preparar a decodificação
     if (avcodec_open2(codecCtx, codec, NULL) < 0) {
+        // Se não conseguir abrir o codec, libera os recursos e encerra
         avcodec_free_context(&codecCtx);
         avformat_close_input(&formatCtx);
-        return -1;
+        return 0;
     }
 
+    // Alocar memória para armazenar os frames decodificados
     frame = av_frame_alloc();
     if (!frame) {
+        // Se a alocação falhar, libera os recursos e encerra
         avcodec_free_context(&codecCtx);
         avformat_close_input(&formatCtx);
-        return -1;
+        return 0;
     }
 
+    // Configurar o contexto de conversão de formato de imagem (de YUV para RGB)
     swsCtx = sws_getContext(
-        codecCtx->width, codecCtx->height, codecCtx->pix_fmt, // Origem
-        codecCtx->width, codecCtx->height, AV_PIX_FMT_RGB24,  // Destino
-        SWS_BICUBIC, NULL, NULL, NULL
+        codecCtx->width, codecCtx->height, codecCtx->pix_fmt, // Resolução e formato de origem
+        codecCtx->width, codecCtx->height, AV_PIX_FMT_RGB24,  // Resolução e formato de destino
+        SWS_BICUBIC, NULL, NULL, NULL // Usando o algoritmo de redimensionamento bicúbico
     );
 
     if (!swsCtx) {
+        // Se o contexto de conversão falhar, libera os recursos e encerra
         av_frame_free(&frame);
         avcodec_free_context(&codecCtx);
         avformat_close_input(&formatCtx);
-        return -1;
+        return 0;
     }
 
+    // Inicializar a variável para contar os frames lidos
     int frames_read = 0;
+
     // Ler múltiplos frames do stream
     while (frames_read < n_frames && av_read_frame(formatCtx, &packet) >= 0) {
+        // Verificar se o pacote pertence ao stream de vídeo
         if (packet.stream_index == videoStreamIndex) {
+            // Enviar o pacote para o codec
             if (avcodec_send_packet(codecCtx, &packet) == 0) {
+                // Receber e processar frames decodificados
                 while (avcodec_receive_frame(codecCtx, frame) == 0) {
-                    frames_read++;
+                    frames_read++; // Incrementar o contador de frames lidos
                 }
             }
         }
+        // Liberar os dados do pacote para reutilização
         av_packet_unref(&packet);
     }
 
     // Medir o tempo: fim
-    clock_t end_time = clock();
-    double elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    clock_t end_time = clock(); // Registrar o tempo após a execução
+    double elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC; // Calcular o tempo decorrido
     printf("Tempo de execução: %.2f segundos.\n", elapsed_time);
 
-    // Liberar recursos
-    av_frame_free(&frame);
-    avcodec_free_context(&codecCtx);
-    avformat_close_input(&formatCtx);
-    avformat_network_deinit();
+    av_frame_free(&frame);               // Liberar memória do frame
+    avcodec_free_context(&codecCtx);     // Liberar contexto do codec
+    avformat_close_input(&formatCtx);    // Fechar o arquivo de entrada
+    avformat_network_deinit();           // Finalizar o uso da rede pelo FFmpeg
 
     return frames_read;
 }
