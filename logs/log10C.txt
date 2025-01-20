@@ -1,0 +1,36 @@
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.00%     1.848MiB / 7.661GiB   0.02%     3.47kB / 0B   1.31MB / 0B   1
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      15.65%    36.38MiB / 7.661GiB   0.46%     3.47kB / 0B   35.1MB / 0B   2
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.48%     62.29MiB / 7.661GiB   0.79%     138kB / 5kB   45.3MB / 0B   2
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.00%     47.38MiB / 7.661GiB   0.60%     182kB / 6.16kB   51.4MB / 0B   1
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK I/O   PIDS
+               --        --        -- / --             --        --        --          --
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.00%     47.38MiB / 7.661GiB   0.60%     182kB / 6.2kB   51.4MB / 0B   1
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK I/O   PIDS
+               --        --        -- / --             --        --        --          --
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK I/O   PIDS
+               --        --        -- / --             --        --        --          --
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.00%     47.38MiB / 7.661GiB   0.60%     182kB / 6.2kB   51.4MB / 0B   1
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.00%     47.38MiB / 7.661GiB   0.60%     182kB / 6.2kB   51.4MB / 0B   1
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      8.08%     68.21MiB / 7.661GiB   0.87%     305kB / 10.3kB   51.4MB / 0B   2
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.00%     47.41MiB / 7.661GiB   0.60%     370kB / 12.5kB   51.4MB / 0B   1
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.00%     47.41MiB / 7.661GiB   0.60%     370kB / 12.6kB   51.4MB / 0B   1
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.00%     47.41MiB / 7.661GiB   0.60%     370kB / 12.6kB   51.4MB / 0B   1
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.00%     47.41MiB / 7.661GiB   0.60%     370kB / 12.6kB   51.4MB / 0B   1
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      0.00%     47.41MiB / 7.661GiB   0.60%     370kB / 12.6kB   51.4MB / 0B   1
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      6.29%     52.59MiB / 7.661GiB   0.67%     370kB / 12.7kB   51.4MB / 0B   2
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT     MEM %     NET I/O        BLOCK I/O     PIDS
+f7a440db939f   Codigo_C      3.75%     68.18MiB / 7.661GiB   0.87%     510kB / 17kB   51.4MB / 0B   2
